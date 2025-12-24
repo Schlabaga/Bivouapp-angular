@@ -1,0 +1,57 @@
+<div class="publish-container">
+  <header>
+    <button class="back-btn" routerLink="/explore"><</button>
+    <h1>Publier un spot</h1>
+  </header>
+
+  <form [formGroup]="spotForm" (ngSubmit)="onSubmit()">
+    <label for="title">Titre</label>
+    <input type="text" id="title" formControlName="title" placeholder="Ajouter un titre">
+
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" placeholder="Ajouter une description..."></textarea>
+
+    <div class="row">
+      <div class="col">
+        <label>Localisation</label>
+        <div class="map-preview">
+          <img src="/assets/images/map-placeholder.jpg" alt="Carte de localisation">
+        </div>
+      </div>
+
+      <div class="col">
+        <label>Note</label>
+        <div class="stars">
+          @for (s of [1, 2, 3, 4, 5]; track s) {
+            <span [class.active]="spotForm.get('note')?.value >= s"
+                  (click)="spotForm.get('note')?.setValue(s)">★</span>
+          }
+        </div>
+
+        <label for="price">Prix</label>
+        <div class="price-input">
+          <input type="number" id="price" formControlName="price" placeholder="Entrer un prix">
+          <span>€</span>
+        </div>
+      </div>
+    </div>
+
+    <label>Services</label>
+    <div class="services-grid">
+      @for (service of availableServices; track service.id) {
+        <div class="service-item"
+             [class.selected]="spotForm.get('services')?.value.includes(service.id)"
+             (click)="toggleService(service.id)">
+          <img [src]="service.icon" [alt]="service.label">
+          <p>{{ service.label }}</p>
+        </div>
+      } @empty {
+        <p>Aucun service disponible, c'est la dèche !</p>
+      }
+    </div>
+
+    <button type="submit" [disabled]="spotForm.invalid" class="submit-btn">
+      Publier le spot
+    </button>
+  </form>
+</div>
