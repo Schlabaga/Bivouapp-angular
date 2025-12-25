@@ -8,4 +8,5 @@ export interface Spot {
   imageUrl: string;
   services: string[]; // pour tout ce qui est eau, wifi etc
   isFavorite: boolean;
+  location: string;
 }

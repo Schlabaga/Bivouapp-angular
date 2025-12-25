@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {SpotService} from '../services/spot';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-publish-spot-component',
@@ -17,7 +17,8 @@ export class PublishSpotComponent {
 
   constructor(
     private formBuilder:FormBuilder,
-    private spotService: SpotService) {
+    private spotService: SpotService,
+    private router: Router){
   }
 
   availableServices=[
@@ -63,6 +64,7 @@ export class PublishSpotComponent {
       this.spotService.addSpot(newSpot);
       console.log("Spot ajouté.");
       this.spotForm.reset();
+      this.router.navigate(['']) // aller sur l'accueil
     }
   }
 }

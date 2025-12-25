@@ -18,7 +18,8 @@ export class SpotService {
       distance: 12,
       imageUrl: 'assets/images/pyrenees.jpg',
       services: ['Feu', 'Eau'],
-      isFavorite: false
+      isFavorite: false,
+      location: 'Pyréenées'
     }
   ];
 

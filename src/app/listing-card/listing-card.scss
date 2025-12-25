@@ -1,0 +1,57 @@
+.card {
+  cursor: pointer;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* carré parfait style Airbnb */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.spot-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .spot-image {
+  transform: scale(1.05); /* zoom pour survol */
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.info-section {
+  padding-top: 12px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.description, .dates {
+  color: #717171;
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.price {
+  margin-top: 6px;
+  font-size: 15px;
+}

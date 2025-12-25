@@ -1,1 +1,7 @@
-<p>explore-component works!</p>
+<div class ='listing-items'>
+  @for (spot of spots; track spot.id){
+
+    <app-listing-card [data]="spot"></app-listing-card>
+
+  }
+</div>

@@ -8,19 +8,22 @@ import { ExploreComponent } from './explore-component/explore-component';
 import { SpotDetailComponent } from './spot-detail-component/spot-detail-component';
 import { PublishSpotComponent } from './publish-spot-component/publish-spot-component';
 import { FavoritesComponent } from './favorites-component/favorites-component';
-
+import {ListingCard, ListingCardComponent} from './listing-card/listing-card';
+import {Router, RouterOutlet} from '@angular/router';
 @NgModule({
   declarations: [
     App,
     WelcomeComponent,
-    ExploreComponent,
     SpotDetailComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    ListingCard
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublishSpotComponent
+    PublishSpotComponent,
+    ListingCardComponent,
+    RouterOutlet
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
