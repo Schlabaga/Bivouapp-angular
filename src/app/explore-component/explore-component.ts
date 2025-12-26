@@ -14,12 +14,17 @@ import {CommonModule} from '@angular/common';
 })
 export class ExploreComponent {
 
+  selectedSection:string = "Bivouac";
 
   spots: Spot[] = [];
 
   constructor(
     private spotService: SpotService,
     private router: Router){
+  }
+
+  select(section:string){
+    this.selectedSection=section;
   }
 
 

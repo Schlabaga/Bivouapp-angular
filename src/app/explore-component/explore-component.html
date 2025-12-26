@@ -1,7 +1,38 @@
-<div class ='listing-items'>
+
+<p class="explore">Explorez</p>
+<p class="location">Alpes</p>
+<div class="search-container">
+  <input id="rechercher" type="text" placeholder="Rechercher un spot">
+</div>
+
+<ul class="sections">
+  <li [class.active]="selectedSection === 'Bivouac'"
+      (click)="select('Bivouac')">
+    Bivouac
+  </li>
+
+  <li [class.active]="selectedSection === 'Camping'"
+      (click)="select('Camping')">
+    Camping
+  </li>
+
+  <li [class.active]="selectedSection === 'Refuge'"
+      (click)="select('Refuge')">
+    Refuge
+  </li>
+
+  <li [class.active]="selectedSection === 'Point d\'eau'"
+      (click)="select('Point d\'eau')">
+    Point d'eau
+  </li>
+</ul>
+
+  <div class ='listing-items'>
+
+
   @for (spot of spots; track spot.id){
-
     <app-listing-card [data]="spot"></app-listing-card>
-
   }
+
+
 </div>

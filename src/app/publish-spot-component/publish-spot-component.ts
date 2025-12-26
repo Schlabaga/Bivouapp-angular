@@ -28,13 +28,15 @@ export class PublishSpotComponent {
   ]
 
   ngOnInit() {
+    document.body.classList.add('no-scroll');
     this.spotForm = this.formBuilder.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       location: ['Sallanches'],
       note: [4, [Validators.min(1), Validators.max(5)]],
       price: [0, [Validators.min(0)]],
-      services: [[]]
+      services: [[]],
+      imageUrl: ['/assets/images/default.jpeg']
     });
   }
 
@@ -58,7 +60,7 @@ export class PublishSpotComponent {
         id: Date.now(),
         rating: this.spotForm.value.note,
         distance: 0,
-        imageUrl: 'assets/images/default.jpg',
+        imageUrl: 'assets/images/default.jpeg',
         isFavorite: false
       };
       this.spotService.addSpot(newSpot);
@@ -66,5 +68,8 @@ export class PublishSpotComponent {
       this.spotForm.reset();
       this.router.navigate(['']) // aller sur l'accueil
     }
+  }
+  ngOnDestroy() {
+    document.body.classList.remove('no-scroll');
   }
 }

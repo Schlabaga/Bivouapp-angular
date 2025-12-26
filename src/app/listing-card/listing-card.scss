@@ -1,9 +1,13 @@
-.card {
-  cursor: pointer;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  width: 100%;
+/* ça cible listing-card lui même */
+:host {
+  display: block;
+  width: calc(50% - 10px);
 }
 
+.card {
+  cursor: pointer;
+  width: 100%; /* la div prend dcp toute la place du host */
+}
 .image-container {
   position: relative;
   width: 100%;

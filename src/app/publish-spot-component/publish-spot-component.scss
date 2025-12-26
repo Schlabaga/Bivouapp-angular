@@ -1,13 +1,13 @@
-// Mobile first
+
+
 .publish-container {
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   background-color: white;
   min-height: 100vh;
   box-sizing: border-box;
+  padding-top: 20px;
 
   header {
     display: flex;
@@ -58,8 +58,8 @@
       background-color: #f4f7f6;
       border-radius: 15px;
       box-sizing: border-box;
-      font-family: inherit;
       font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
 
       &::placeholder {
         color: #999;
