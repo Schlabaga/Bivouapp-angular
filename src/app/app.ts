@@ -6,21 +6,33 @@ import { filter } from 'rxjs/operators';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: false,
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  // pour que l'espace de la navbar soit enlevé
+  host: {
+    '[class.has-nav]': 'showNav()'
+  }
 })
 export class App {
   protected readonly title = signal('bivouapp');
   showNav = signal(true);
 
   constructor(private router: Router) {
+    // Initialiser showNav à false au démarrage
+    this.showNav.set(false);
+
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+        // La navbar ne doit PAS s'afficher sur welcome, publish et spot
+        const url = event.url;
         this.showNav.set(
-          !event.url.includes('/publish') &&
-          !event.url.includes('/welcome') &&
-          !event.url.includes('/spot')
+          url !== '/' &&
+          !url.includes('/welcome') &&
+          !url.includes('/publish') &&
+          !url.includes('/spot')
         );
       });
+
+
   }
 }

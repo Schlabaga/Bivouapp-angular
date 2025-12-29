@@ -1,1 +1,25 @@
-<p>profile-component works!</p>
+
+@if (user){
+
+  <div class="profile-container">
+    <h1>Profil</h1>
+    <div class="profile-pic-container">
+      <img [src]="user.profileImageUrl" alt="Photo de profil">
+    </div>
+
+    <h3>{{user.name}}</h3>
+    <p>{{user.createdAt | timeAgo}}</p>
+
+    <p>{{user.bio }}</p>
+
+    <h3>Téléphone</h3>
+    <p>{{user.phoneNumber}}</p>
+
+    <h3>E-mail</h3>
+    <p>{{user.email}}</p>
+
+    <h3>Adresse</h3>
+    <p>{{user.address}}</p>
+  </div>
+
+}

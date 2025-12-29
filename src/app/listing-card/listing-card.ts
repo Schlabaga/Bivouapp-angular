@@ -12,8 +12,8 @@ import { SpotService} from '../services/spot';
   styleUrls: ['./listing-card.scss']
 })
 export class ListingCardComponent {
-  @Input({ required: true }) data!: Spot;
-
+  @Input({ required: true }) data!: Spot; // pour faire passer du parent à l'enfant
+  // data! garantit que la donnée sera fournie par le parent
   constructor(private spotService:SpotService) {
   }
 

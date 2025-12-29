@@ -9,6 +9,10 @@
   flex: 1;
   overflow-y: auto;
   padding: 10px;
+}
+
+// ajouter le padding seulement quand la navbar est visible
+.has-nav .content {
   padding-bottom: 80px;
 }
 
@@ -38,8 +42,6 @@
     max-width: 120px;
 
     .nav-icon {
-      font-size: 24px;
-      margin-bottom: 4px;
       width: 32px;
       height: 32px;
       display: flex;
@@ -63,9 +65,16 @@
     }
 
     &.active-link {
-      color: #1e70f0;
+      color: #1D6AF2;
 
       .nav-icon {
+        transform: scale(1.1);
+      }
+
+      img {
+        opacity: 1;
+        // pour changer la couleur d'un svg
+        filter: invert(31%) sepia(85%) saturate(3062%) hue-rotate(211deg) brightness(98%) contrast(93%);
         transform: scale(1.1);
       }
     }

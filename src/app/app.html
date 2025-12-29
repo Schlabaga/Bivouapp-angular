@@ -5,17 +5,19 @@
 
   @if (showNav()) {
     <nav class="bottom-nav">
-      <a routerLink="/explore" routerLinkActive="active-link" class="nav-item">
-        <span class="nav-icon"><img src="/assets/icons/Home.svg"></span>
+      <a routerLink="/explore" routerLinkActive="active-link" #rla1="routerLinkActive" class="nav-item">
+      <span class="nav-icon">
+        <img src="/assets/icons/home.svg" [class.is-active]="rla1.isActive">
+      </span>
       </a>
       <a routerLink="/publish" routerLinkActive="active-link" class="nav-item">
-        <span class="nav-icon"><img src="/assets/icons/Ticket.png"></span>
+        <span class="nav-icon"><img src="/assets/icons/add_circle.svg"></span>
       </a>
       <a routerLink="/favorites" routerLinkActive="active-link" class="nav-item">
-        <span class="nav-icon"><img src="/assets/icons/Heart.png"></span>
+        <span class="nav-icon"><img src="/assets/icons/favorite.svg"></span>
       </a>
       <a routerLink="/profile" routerLinkActive="active-link" class="nav-item">
-        <span class="nav-icon"><img src="/assets/icons/Profile.png"></span>
+        <span class="nav-icon"><img src="/assets/icons/account.svg"></span>
       </a>
     </nav>
   }

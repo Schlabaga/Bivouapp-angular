@@ -46,7 +46,7 @@
     <div class="footer-action">
       <div class="price-info">
         <p>Prix</p>
-        <span class="price-value">{{spot.price}} €</span>
+        <span class="price-value">{{(spot.price || 0) |currency: 'EUR' }}</span>
       </div>
       <button class="go-btn">
         J'y vais!

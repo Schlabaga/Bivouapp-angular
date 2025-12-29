@@ -11,6 +11,7 @@ import { ExploreComponent } from './explore-component/explore-component';
 import { ProfileComponent } from './profile-component/profile-component';
 import { RouterModule } from '@angular/router';
 import {ListingCardComponent} from './listing-card/listing-card';
+import { TimeAgoPipe } from './pies/time-ago-pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,6 @@ import {ListingCardComponent} from './listing-card/listing-card';
     WelcomeComponent,
     SpotDetailComponent,
     FavoritesComponent,
-    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +26,14 @@ import {ListingCardComponent} from './listing-card/listing-card';
     PublishSpotComponent,
     ExploreComponent,
     RouterModule,
-    ListingCardComponent
+    ListingCardComponent,
+    ProfileComponent,
+    TimeAgoPipe
   ],
   providers: [],
+  exports: [
+    TimeAgoPipe
+  ],
   bootstrap: [App]
 })
 export class AppModule { }

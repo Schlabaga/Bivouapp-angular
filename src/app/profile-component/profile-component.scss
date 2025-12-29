@@ -1,0 +1,27 @@
+
+.profile-container{
+  padding-left: 20px;
+}
+
+
+
+
+.profile-pic-container{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1D6AF2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    width: 100%;
+    height: 100%;
+
+    // pour pas étirer le visage
+    object-fit: cover;
+  }
+}
+

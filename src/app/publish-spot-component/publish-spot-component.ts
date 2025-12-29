@@ -66,7 +66,7 @@ export class PublishSpotComponent implements OnInit, OnDestroy {
       this.spotService.addSpot(newSpot);
       console.log('Spot ajouté.');
       this.spotForm.reset();
-      this.router.navigate(['']);
+      this.router.navigate(['explore']);
     }
   }
 

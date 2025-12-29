@@ -40,9 +40,12 @@
     <div class="services-grid">
       @for (service of availableServices; track service.id) {
         <div class="service-item"
+
              [class.selected]="spotForm.get('services')?.value.includes(service.id)"
              (click)="toggleService(service.id)">
+
           <img [src]="service.icon" [alt]="service.label">
+
           <p>{{ service.label }}</p>
         </div>
       } @empty {
