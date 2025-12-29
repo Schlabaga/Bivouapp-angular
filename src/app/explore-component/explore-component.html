@@ -6,23 +6,23 @@
 </div>
 
 <ul class="sections">
-  <li [class.active]="selectedSection === 'Bivouac'"
-      (click)="select('Bivouac')">
+  <li [class.active]="selectedSection === 'bivouac'"
+      (click)="select('bivouac')">
     Bivouac
   </li>
 
-  <li [class.active]="selectedSection === 'Camping'"
-      (click)="select('Camping')">
+  <li [class.active]="selectedSection === 'camping'"
+      (click)="select('camping')">
     Camping
   </li>
 
-  <li [class.active]="selectedSection === 'Refuge'"
-      (click)="select('Refuge')">
+  <li [class.active]="selectedSection === 'refuge'"
+      (click)="select('refuge')">
     Refuge
   </li>
 
-  <li [class.active]="selectedSection === 'Point d\'eau'"
-      (click)="select('Point d\'eau')">
+  <li [class.active]="selectedSection === 'point d\'eau'"
+      (click)="select('point d\'eau')">
     Point d'eau
   </li>
 </ul>
@@ -31,7 +31,10 @@
 
 
   @for (spot of spots; track spot.id){
-    <app-listing-card [data]="spot"></app-listing-card>
+    @if (spot.type === selectedSection){
+      <app-listing-card [data]="spot"></app-listing-card>
+
+    }
   }
 
 

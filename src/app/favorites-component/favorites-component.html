@@ -4,7 +4,9 @@
 
 
   @for (spot of spots; track spot.id){
-    <app-listing-card [data]="spot"></app-listing-card>
+    <app-listing-card [data]="spot"
+                      [isFavoritePage]="true"
+                      (removed)="handleRemove($event)">></app-listing-card>
   }
 
 

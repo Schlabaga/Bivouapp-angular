@@ -9,4 +9,5 @@ export interface Spot {
   services: string[]; // pour tout ce qui est eau, wifi etc
   isFavorite: boolean;
   location: string;
+  type: 'camping' | 'bivouac' | 'refuge' | 'point d\'eau';
 }

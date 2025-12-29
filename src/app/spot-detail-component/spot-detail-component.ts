@@ -14,20 +14,24 @@ export class SpotDetailComponent implements OnInit {
 
   id: string | null = '';
   spot: Spot | undefined;
+  services: string[] |undefined;
+  allServices: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private spotService: SpotService,
     private location: Location,
-  ) { }
+) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.allServices = this.spotService.getAllServices();
 
     if (this.id) {
       // on s'abonne au flux de données
       this.spotService.getSpotById(Number(this.id)).subscribe(data => {
         this.spot = data;
+        this.services = data?.services;
       });
     }
   }
@@ -40,4 +44,10 @@ export class SpotDetailComponent implements OnInit {
     this.spotService.toggleFavorite(Number(this.id))
 
   }
+
+  getServiceInfo(serviceId: string) {
+    return this.allServices.find(s => s.id === serviceId);
+  }
+
+
 }

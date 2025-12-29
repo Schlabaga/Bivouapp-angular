@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ExploreComponent implements OnInit {
 
-  selectedSection: string = 'Bivouac';
+  selectedSection: string = 'bivouac';
 
   spots: Spot[] = [];
 

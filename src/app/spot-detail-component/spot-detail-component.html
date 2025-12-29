@@ -32,14 +32,18 @@
 
       <h3>Services</h3>
       <div class="services-grid">
-        <div class="service-item disabled">
-          <span class="material-icons">restaurant</span>
-          <p>Feu autorisé</p>
-        </div>
-        <div class="service-item">
-          <span class="material-icons">water_drop</span>
-          <p>Point d’eau</p>
-        </div>
+        @for (service of services ; track service){
+          @let serviceInfo = getServiceInfo(service);
+          <div class="service-item">
+            @if (serviceInfo) {
+              <img [src]="serviceInfo.icon" [alt]="serviceInfo.label">
+              <p>{{ serviceInfo.label }}</p>
+            } @else {
+              <span class="material-icons">help_outline</span>
+              <p>{{ service }}</p>
+            }
+          </div>
+        }
       </div>
     </div>
 
