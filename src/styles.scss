@@ -13,41 +13,37 @@ html {
   ));
 }
 
-// Reset de base
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
   color-scheme: light;
   background-color: white;
-  margin: 0;
-  padding: 20px;
-
-
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
-html, body {
-  margin: 0;
-
-  width: 100%;
-  height: 100%;
-}
-
-body.no-scroll {
-  overflow: hidden;
-}
-
-
-// Styles utilitaires responsive
 .container {
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
 }
 
-// Tablettes
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
@@ -55,7 +51,6 @@ body.no-scroll {
   }
 }
 
-// Desktop
 @media (min-width: 1024px) {
   .container {
     max-width: 960px;
@@ -69,7 +64,6 @@ body.no-scroll {
   }
 }
 
-// Boutons génériques
 .btn-blue {
   background-color: #1e70f0;
   color: white;
@@ -80,9 +74,15 @@ body.no-scroll {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
 
   &:hover {
     background-color: #1557c7;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 }
 

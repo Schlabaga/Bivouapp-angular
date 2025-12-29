@@ -9,6 +9,8 @@ import { PublishSpotComponent } from './publish-spot-component/publish-spot-comp
 import { FavoritesComponent } from './favorites-component/favorites-component';
 import { ExploreComponent } from './explore-component/explore-component';
 import { ProfileComponent } from './profile-component/profile-component';
+import { RouterModule } from '@angular/router';
+import {ListingCardComponent} from './listing-card/listing-card';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProfileComponent } from './profile-component/profile-component';
     BrowserModule,
     AppRoutingModule,
     PublishSpotComponent,
-    ExploreComponent
+    ExploreComponent,
+    RouterModule,
+    ListingCardComponent
   ],
   providers: [],
   bootstrap: [App]

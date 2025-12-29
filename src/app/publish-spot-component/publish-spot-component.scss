@@ -1,13 +1,16 @@
-
-
 .publish-container {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   background-color: white;
-  min-height: 100vh;
+  height: 100vh;
   box-sizing: border-box;
-  padding-top: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
   header {
     display: flex;
@@ -26,6 +29,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
 
       &:hover {
         background: #e5e9e8;
@@ -48,9 +56,11 @@
       font-weight: 600;
       margin-bottom: 5px;
       color: #333;
+      display: block;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 15px;
       margin: 0;
@@ -63,6 +73,10 @@
 
       &::placeholder {
         color: #999;
+      }
+
+      &:focus {
+        outline: 2px solid #1e70f0;
       }
     }
 
@@ -136,26 +150,25 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(70px, 0.5fr));
-      gap: 5px;
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 10px;
       margin-top: 5px;
 
       .service-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        padding: 15px 10px;
         background: #f4f7f6;
         border-radius: 15px;
         cursor: pointer;
         transition: all 0.3s;
         border: 2px solid transparent;
 
-
         img {
-          width: 20px;
-          height: 20px;
-          margin-bottom: 5px;
+          width: 30px;
+          height: 30px;
+          margin-bottom: 8px;
         }
 
         p {
@@ -206,7 +219,6 @@
   }
 }
 
-// Tablettes
 @media (min-width: 768px) {
   .publish-container {
     max-width: 600px;
@@ -214,6 +226,8 @@
     border-radius: 30px;
     margin: 20px auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: static;
+    height: auto;
 
     header h1 {
       font-size: 28px;
@@ -235,11 +249,12 @@
   }
 }
 
-// Desktop
 @media (min-width: 1024px) {
   .publish-container {
     max-width: 800px;
     padding: 40px;
+    position: static;
+    height: auto;
 
     form {
       .services-grid {

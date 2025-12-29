@@ -31,7 +31,7 @@ export class SpotService {
       distance: 8,
       imageUrl: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=600',
       services: ['Eau', 'Baignade'],
-      isFavorite: false,
+      isFavorite: true,
       location: 'Annecy, France'
     },
     {
@@ -92,4 +92,14 @@ export class SpotService {
       observer.complete();
     });
   }
+
+  toggleFavorite(id: number) {
+    this.getSpotById(id).subscribe(spot => {
+      if (spot) {
+        spot.isFavorite = !spot.isFavorite;
+
+      }
+    });
+  }
+
 }

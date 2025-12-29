@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1;      /* elle passe derrière le contenu */
+  z-index: -1;
 }
 
 .content {
@@ -26,44 +26,83 @@ h1 {
   text-align: center;
   font-weight: 400;
   letter-spacing: 2px;
+  margin: 0;
 }
 
-/* on crée un groupe pour le texte du bas */
 .bottom-group {
   margin-top: auto;
   margin-bottom: 20px;
   color: white;
+
+  p {
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: 300;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 55px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  button {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #1e70f0;
+    color: white;
+    transition: transform 0.2s, background-color 0.2s;
+    font-family: 'Montserrat', sans-serif;
+
+    &:hover {
+      background-color: #1557c7;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
 }
 
-p {
-  font-size: 28px;
-  margin-bottom: 5px;
-  font-weight: 300;
+@media (min-width: 768px) {
+  h1 {
+    font-size: 140px;
+  }
+
+  .bottom-group {
+    p {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 65px;
+    }
+  }
 }
 
-h2 {
-  font-size: 55px;
-  line-height: 1; // réduire l'espace des lignes
-  margin-top: 0;
-  margin-bottom: 40px;
-  font-weight: 600;
-}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 160px;
+  }
 
+  .bottom-group {
+    max-width: 500px;
 
-button {
-  width: 100%;
-  padding: 18px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  border: none;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  background-color: #1e70f0;
-  color: white;
-  transition: transform 0.2s;
-}
+    p {
+      font-size: 36px;
+    }
 
-button:active {
-  transform: scale(0.98); /* petit effet de clic */
+    h2 {
+      font-size: 75px;
+    }
+  }
 }

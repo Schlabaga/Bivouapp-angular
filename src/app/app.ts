@@ -13,14 +13,13 @@ export class App {
   showNav = signal(true);
 
   constructor(private router: Router) {
-    // Écouter les changements de route pour afficher/cacher le menu
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        // Cacher le menu sur la page publish et welcome
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
         this.showNav.set(
           !event.url.includes('/publish') &&
-          !event.url.includes('/welcome')
+          !event.url.includes('/welcome') &&
+          !event.url.includes('/spot')
         );
       });
   }

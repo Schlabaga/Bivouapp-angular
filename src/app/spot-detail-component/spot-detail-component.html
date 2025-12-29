@@ -1,1 +1,56 @@
-<p>spot-detail-component works!</p>
+@if (spot) {
+  <div class="detail-container">
+    <div class="image-header">
+      <img [src]="spot.imageUrl" [alt]="spot.title" class="main-image">
+
+      <button class="back-btn"  (click)="goBack()">
+        <span class="material-icons">chevron_left</span>
+      </button>
+
+      <button class="wishlist-btn-float">
+        <span class="material-icons wishlist-btn" [class.active]="spot.isFavorite" (click)="onFavoriteClick()">{{ spot.isFavorite ? 'favorite' : 'favorite_border' }}
+
+    </span>
+      </button>
+    </div>
+
+    <div class="info-container">
+      <div class="title-row">
+        <h2>{{ spot.title }}</h2>
+        <a href="https://www.google.fr/maps" class="map-link">Voir carte</a>
+      </div>
+
+      <div class="rating-row">
+        <span class="star">★</span>
+        <span class="notes">{{ spot.rating }} (355 notes)</span>
+      </div>
+
+      <p class="description">
+        {{ spot.description }}
+        <br><span class="voir-plus">Voir plus ∨</span>
+      </p>
+
+      <h3>Services</h3>
+      <div class="services-grid">
+        <div class="service-item disabled">
+          <span class="material-icons">restaurant</span>
+          <p>Feu autorisé</p>
+        </div>
+        <div class="service-item">
+          <span class="material-icons">water_drop</span>
+          <p>Point d’eau</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-action">
+      <div class="price-info">
+        <p>Prix</p>
+        <span class="price-value">{{spot.price}} €</span>
+      </div>
+      <button class="go-btn">
+        J'y vais!
+      </button>
+    </div>
+  </div>
+}

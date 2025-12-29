@@ -1,9 +1,10 @@
-  <div class="card">
-    <div class="image-container">
+<div class="card" [routerLink]="['/spot', data.id]">
+  <div class="image-container">
       <img [src]="data.imageUrl" [alt]="data.title" class="spot-image">
-      <button class="wishlist-btn">❤️</button>
-    </div>
+    <span class="material-icons wishlist-btn" [class.active]="data.isFavorite" (click)="onFavoriteClick($event)">
+    {{ data.isFavorite ? 'favorite' : 'favorite_border' }}
 
+    </span></div>
     <div class="info-section">
       <div class="header-row">
         <span class="location">{{ data.location }}</span>
