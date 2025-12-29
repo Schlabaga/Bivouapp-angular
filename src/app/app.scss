@@ -109,38 +109,42 @@
   }
 }
 
+
 @media (min-width: 1024px) {
   .app-container {
-    flex-direction: row;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
   }
 
   .bottom-nav {
-    position: static;
-    flex-direction: column;
-    width: 200px;
+    position: sticky;
+    top: 0;
     height: 100vh;
-    border-right: 1px solid #e0e0e0;
+
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e0e0e0;
     border-top: none;
+    border-radius: 0;
+    background-color: white;
     padding: 20px 0;
+    z-index: 1000;
 
     .nav-item {
-      flex-direction: row;
-      justify-content: flex-start;
-      padding: 12px 20px;
-      max-width: none;
-
-      .nav-icon {
-        font-size: 24px;
-      }
+      flex-direction: column;
+      padding: 20px 0;
 
       .nav-label {
-        font-size: 16px;
+        font-size: 11px;
       }
     }
   }
 
   .content {
     flex: 1;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 30px;
   }
 }

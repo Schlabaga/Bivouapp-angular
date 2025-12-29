@@ -11,10 +11,11 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './publish-spot-component.html',
   styleUrl: './publish-spot-component.scss',
 })
-export class PublishSpotComponent implements OnInit, OnDestroy {
+export class PublishSpotComponent implements OnInit {
 
   spotForm!: FormGroup;
   allServices: any[] = [];
+  private isMobile: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,11 +24,10 @@ export class PublishSpotComponent implements OnInit, OnDestroy {
     this.allServices = spotService.getAllServices();
   }
 
-
-
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    document.body.classList.add('no-scroll');
+
+
     this.spotForm = this.formBuilder.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -39,7 +39,6 @@ export class PublishSpotComponent implements OnInit, OnDestroy {
       type: 'bivouac',
       isFavorite: false
     });
-
   }
 
   toggleService(serviceId: string): void {
@@ -72,8 +71,4 @@ export class PublishSpotComponent implements OnInit, OnDestroy {
   }
 
 
-
-  ngOnDestroy(): void {
-    document.body.classList.remove('no-scroll');
-  }
 }

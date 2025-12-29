@@ -12,8 +12,18 @@
       </div>
       <p class="description">{{ data.title }}</p>
       <p class="dates">15 - 20 juil.</p>
-      <p class="price">
-        <strong>{{(data.price || 0) |currency: 'EUR' }}</strong> par nuit
-      </p>
+      @if (data.price>0){
+        <p class="price">
+          <strong>{{(data.price || 0) |currency: 'EUR' }}</strong>
+          @if (data.type !== "point d'eau"){
+            par nuit
+          }
+        </p>
+      } @else {
+        <p class="free">
+          <strong>Gratuit</strong>
+        </p>
+      }
+
     </div>
   </div>

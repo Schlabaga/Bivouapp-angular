@@ -20,6 +20,7 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     const idParam = this.route.snapshot.paramMap.get('id');
 
     // si c'est null on met 1
