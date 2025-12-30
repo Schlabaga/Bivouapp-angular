@@ -1,4 +1,3 @@
-
 <p class="explore">Explorez</p>
 <p class="location">Alpes</p>
 <div class="search-container">
@@ -6,6 +5,8 @@
 </div>
 
 <ul class="sections">
+  <!-- [class.active] ajoute la classe active si la condition est vraie -->
+  <!-- (click) déclenche la méthode select() quand on clique -->
   <li [class.active]="selectedSection === 'bivouac'"
       (click)="select('bivouac')">
     Bivouac
@@ -27,15 +28,12 @@
   </li>
 </ul>
 
-  <div class ='listing-items'>
-
-
+<div class ='listing-items'>
   @for (spot of spots; track spot.id){
+    <!-- afficher seulement les spots qui correspondent au type sélectionné -->
     @if (spot.type === selectedSection){
+      <!-- donne les données du spot au composant enfant -->
       <app-listing-card [data]="spot"></app-listing-card>
-
     }
   }
-
-
 </div>

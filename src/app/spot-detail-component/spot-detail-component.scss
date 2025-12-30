@@ -16,6 +16,7 @@
 
 .back-btn {
   cursor: pointer;
+  // position: absolute permet de positionner l'élément librement
   position: absolute;
   top: 30px;
   left: 30px;
@@ -28,8 +29,10 @@
 
 .wishlist-btn-float {
   position: absolute;
-  bottom: 0; /* a cheval sur l'image et le texte */
+  // bottom: 0 avec translateY(50%) met le bouton à cheval sur deux sections
+  bottom: 0;
   right: 40px;
+  // translateY(50%) descend l'élément de 50% de sa propre hauteur
   transform: translateY(50%);
   background: white;
   color: #ff5a5f;
@@ -61,6 +64,7 @@
 }
 
 .services-grid {
+  // grid-template-columns avec repeat() crée 4 colonnes de taille égale
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -81,7 +85,6 @@
 
   img{
     filter: brightness(0.7);
-
   }
 
   p {
@@ -90,9 +93,9 @@
     font-weight: 600;
     color: #444;
   }
-
 }
 
+// position: fixed fait que l'élément reste toujours visible même en scrollant
 .footer-action {
   position: fixed;
   bottom: 20px;
@@ -128,4 +131,15 @@
   font-weight: bold;
   color: #1e70f0;
 }
+
+@media (min-width: 768px) {
+  .main-image {
+    width: 500px;
+    height: 400px;
+    object-fit: fill;
+    border-radius: 30px;
+
+  }
+}
+
 

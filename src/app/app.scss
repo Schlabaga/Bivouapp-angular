@@ -73,7 +73,8 @@
 
       img {
         opacity: 1;
-        // pour changer la couleur d'un svg
+        // filter permet de changer la couleur d'un SVG (idee: stackoverflow)
+        // ces valeurs correspondent à la couleur bleue #1D6AF2
         filter: invert(31%) sepia(85%) saturate(3062%) hue-rotate(211deg) brightness(98%) contrast(93%);
         transform: scale(1.1);
       }
@@ -109,15 +110,17 @@
   }
 }
 
-
+// sur desktop, la navbar devient verticale sur le côté car elle était trop grosse pour desktop
 @media (min-width: 1024px) {
   .app-container {
+    // flex-direction: row-reverse met la navbar à droite
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
   }
 
   .bottom-nav {
+    // position: sticky fait que la navbar reste visible en scrollant
     position: sticky;
     top: 0;
     height: 100vh;

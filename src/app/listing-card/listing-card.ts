@@ -12,25 +12,31 @@ import { SpotService} from '../services/spot';
   styleUrls: ['./listing-card.scss']
 })
 export class ListingCardComponent {
+
   @Input() isFavoritePage: boolean = false;
+
+  // ici on envoie l'id du spot au parent quand on le supprime des favoris
   @Output() removed = new EventEmitter<number>();
-  @Input({ required: true }) data!: Spot; // pour faire passer du parent à l'enfant
-  // data! garantit que la donnée sera fournie par le parent
+
+  // required: true veut dire que le parent DOIT fournir cette donnée
+  @Input({ required: true }) data!: Spot;
+
   constructor(private spotService:SpotService) {
   }
 
   onFavoriteClick(event:Event){
-    // empêche la redirection vers les détails
+    // stopPropagation empêche l'événement de remonter au parent
+    // Sinon en cliquant sur le coeur, ça nous redirigerait vers la page de détail
     event.stopPropagation();
 
-
-    // mettre en favoris
+    // On change l'état favori du spot
     this.spotService.toggleFavorite(this.data.id)
 
-    // prévenir si on est sur la page des favoris
+    // Si on est sur la page des favoris ET que le spot n'est plus favori
+    // alors on prévient le composant parent pour qu'il le retire de la liste
+    // sinon il l'enlèverait de explore aussi
     if (this.isFavoritePage && !this.data.isFavorite) {
       this.removed.emit(this.data.id);
     }
   }
-
 }

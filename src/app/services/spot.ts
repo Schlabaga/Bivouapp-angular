@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SpotService {
 
+  // Liste des services disponibles pour les spots (icônes et labels)
   private availableServices = [
     { id: 'fire', label: 'Feu autorisé', icon: 'assets/icons/fire.png' },
     { id: 'water', label: "Point d'eau", icon: 'assets/icons/water.png' },
@@ -15,6 +16,8 @@ export class SpotService {
     { id: 'pool', label: 'Baignade', icon: 'assets/icons/pool.png' },
     { id: 'shower', label: 'Douche', icon: 'assets/icons/shower.png' },
   ];
+
+  // Tableau qui contient tous les spots en dur pour le test
   private spots: Spot[] = [
     // --- TYPE: BIVOUAC ---
     { id: 1, title: 'Mont des Pyrénées', description: 'Vue imprenable sur la chaîne.', price: 25, rating: 4.8, distance: 12, imageUrl: 'assets/images/pyrenees.jpg', services: ['fire', 'water'], isFavorite: false, location: 'Pyrénées', type: 'bivouac' },
@@ -47,6 +50,7 @@ export class SpotService {
 
   constructor() {}
 
+  // retourne tous les spots sous forme d'Observable
   getSpots(): Observable<Spot[]> {
     return new Observable(observer => {
       observer.next(this.spots);
@@ -58,10 +62,12 @@ export class SpotService {
     return this.availableServices;
   }
 
+  // ajoute un nouveau spot dans le tableau
   addSpot(newSpot: Spot): void {
     this.spots.push(newSpot);
   }
 
+  // cherche un spot par son ID et le retourne dans un Observable
   getSpotById(id: number): Observable<Spot | undefined> {
     return new Observable(observer => {
       const spot = this.spots.find(s => s.id === id);
@@ -70,13 +76,12 @@ export class SpotService {
     });
   }
 
+  // inverse l'état favori d'un spot
   toggleFavorite(id: number) {
     this.getSpotById(id).subscribe(spot => {
       if (spot) {
         spot.isFavorite = !spot.isFavorite;
-
       }
     });
   }
-
 }

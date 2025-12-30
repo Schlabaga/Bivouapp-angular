@@ -1,29 +1,37 @@
+<!-- [routerLink] permet d'aller vers la page de détail du spot -->
 <div class="card" [routerLink]="['/spot', data.id]">
   <div class="image-container">
-      <img [src]="data.imageUrl" [alt]="data.title" class="spot-image">
+
+    <!-- [src] et [alt] sont des bindings qui utilisent les données du spot -->
+    <img [src]="data.imageUrl" [alt]="data.title" class="spot-image">
+
+    <!-- (click) avec $event permet de capturer l'événement pour le gérer -->
     <span class="material-icons wishlist-btn" [class.active]="data.isFavorite" (click)="onFavoriteClick($event)">
     {{ data.isFavorite ? 'favorite' : 'favorite_border' }}
 
     </span></div>
-    <div class="info-section">
-      <div class="header-row">
-        <span class="location">{{ data.location }}</span>
-        <span class="rating">★ {{ data.rating }}</span>
-      </div>
-      <p class="description">{{ data.title }}</p>
-      <p class="dates">15 - 20 juil.</p>
-      @if (data.price>0){
-        <p class="price">
-          <strong>{{(data.price || 0) |currency: 'EUR' }}</strong>
-          @if (data.type !== "point d'eau"){
-            par nuit
-          }
-        </p>
-      } @else {
-        <p class="free">
-          <strong>Gratuit</strong>
-        </p>
-      }
-
+  <div class="info-section">
+    <div class="header-row">
+      <span class="location">{{ data.location }}</span>
+      <span class="rating">★ {{ data.rating }}</span>
     </div>
+    <p class="description">{{ data.title }}</p>
+    <p class="dates">15 - 20 juil.</p>
+
+    <!-- @if pour afficher différentes sections selon le prix -->
+    @if (data.price>0){
+      <p class="price">
+        <!-- | currency : pipe pour afficher en euro -->
+        <strong>{{(data.price || 0) |currency: 'EUR' }}</strong>
+        @if (data.type !== "point d'eau"){
+          par nuit
+        }
+      </p>
+    } @else {
+      <p class="free">
+        <strong>Gratuit</strong>
+      </p>
+    }
+
   </div>
+</div>

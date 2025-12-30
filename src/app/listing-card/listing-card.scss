@@ -1,12 +1,31 @@
+// :host ça prend l'élément du composant lui-même
 :host {
   display: block;
+  // ici chaque carte prend 50% de largeur moins 10px pour l'espace entre
   width: calc(50% - 10px);
 }
+
+
+@media (min-width: 768px) {
+  :host{
+    width: calc(25% - 10px);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  :host{
+    width: calc(17% - 10px);
+  }
+
+}
+
 
 .card {
   cursor: pointer;
   width: 100%;
 
+  // ici quand on survole la carte, l'image s'agrandit légèrement
   &:hover .spot-image {
     transform: scale(1.05);
   }
@@ -15,6 +34,7 @@
 .image-container {
   position: relative;
   width: 100%;
+  // aspect-ratio: 1 / 1 force un carré parfait
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 12px;
@@ -25,6 +45,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 .wishlist-btn {
   position: absolute;
   top: 12px;
@@ -46,6 +67,7 @@
     color: #ff385c;
   }
 }
+
 .info-section {
   padding-top: 12px;
 }
@@ -91,4 +113,3 @@
     font-weight: 600;
   }
 }
-

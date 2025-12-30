@@ -4,8 +4,10 @@
     <h1>Publier un spot</h1>
   </header>
 
+  <!-- déclenche onSubmit() quand on soumet le formulaire -->
   <form [formGroup]="spotForm" (ngSubmit)="onSubmit()">
     <label for="title">Titre</label>
+    <!-- formControlName lie l'input au champ 'title' du FormGroup -->
     <input type="text" id="title" formControlName="title" placeholder="Ajouter un titre">
 
     <label for="description">Description</label>
@@ -22,7 +24,9 @@
       <div class="col">
         <label>Note</label>
         <div class="stars">
+          <!-- @for pour créer 5 étoiles -->
           @for (s of [1, 2, 3, 4, 5]; track s) {
+            <!-- spotForm.get('note')?.setValue(s) met à jour la valeur de la note -->
             <span [class.active]="spotForm.get('note')?.value >= s"
                   (click)="spotForm.get('note')?.setValue(s)">★</span>
           }
@@ -38,14 +42,14 @@
 
     <label>Services</label>
     <div class="services-grid">
+      <!-- on boucle sur tous les services disponibles -->
       @for (service of allServices; track service.name) {
+        <!-- vérifie si le service est sélectionné -->
         <div class="service-item"
-
              [class.selected]="spotForm.get('services')?.value.includes(service.id)"
              (click)="toggleService(service.id)">
 
           <img [src]="service.icon" [alt]="service.label">
-
           <p>{{ service.label }}</p>
         </div>
       } @empty {
@@ -53,6 +57,7 @@
       }
     </div>
 
+    <!-- [disabled] désactive le bouton si le formulaire n'est pas valide -->
     <button type="submit" [disabled]="spotForm.invalid" class="submit-btn">
       Publier le spot
     </button>

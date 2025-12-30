@@ -14,8 +14,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ExploreComponent implements OnInit {
 
+  // Section actuellement sélectionnée (par défaut : bivouac)
   selectedSection: string = 'bivouac';
 
+  // Tableau qui va contenir tous les spots récupérés du service
   spots: Spot[] = [];
 
   constructor(
@@ -23,11 +25,14 @@ export class ExploreComponent implements OnInit {
     private router: Router) {
   }
 
+  // Méthode pour changer la section active quand l'utilisateur clique
   select(section: string): void {
     this.selectedSection = section;
   }
 
   ngOnInit(): void {
+    // On s'abonne au service pour récupérer les spots
+    // next est appelé quand les données arrivent
     this.spotService.getSpots().subscribe({
       next: (data) => {
         this.spots = data;
@@ -36,5 +41,4 @@ export class ExploreComponent implements OnInit {
       error: (err) => console.error(err)
     });
   }
-
 }

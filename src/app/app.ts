@@ -20,10 +20,13 @@ export class App {
     // Initialiser showNav à false au démarrage
     this.showNav.set(false);
 
+    // On écoute les changements de route pour afficher/masquer la navbar
+    // Le pipe filter permet de ne garder que les événements de type NavigationEnd
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        // La navbar ne doit PAS s'afficher sur welcome, publish et spot
+        // La navbar ne doit pas s'afficher sur welcome, publish et spot
+        // On vérifie l'URL actuelle et on met à jour showNav en conséquence
         const url = event.url;
         this.showNav.set(
           url !== '/' &&
@@ -32,7 +35,5 @@ export class App {
           !url.includes('/spot')
         );
       });
-
-
   }
 }

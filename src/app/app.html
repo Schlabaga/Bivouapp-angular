@@ -3,10 +3,14 @@
     <router-outlet></router-outlet>
   </main>
 
+  <!-- La navbar s'affiche seulement si showNav() est true -->
   @if (showNav()) {
     <nav class="bottom-nav">
+      <!-- routerLinkActive="active-link" ajoute automatiquement la classe quand le lien est actif -->
+      <!-- #rla1="routerLinkActive" crée une référence pour accéder à l'état actif -->
       <a routerLink="/explore" routerLinkActive="active-link" #rla1="routerLinkActive" class="nav-item">
       <span class="nav-icon">
+        <!-- class.is-active ajoute dynamiquement la classe si rla1.isActive est true -->
         <img src="/assets/icons/home.svg" [class.is-active]="rla1.isActive">
       </span>
       </a>
